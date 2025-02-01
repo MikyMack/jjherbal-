@@ -1206,7 +1206,7 @@ a:hover, a:active {
 
 
 }
-@media(max-width:700px){
+@media(max-width:756px){
   .top-hd{
     width: 100%;
     display: flex;
@@ -1217,13 +1217,14 @@ a:hover, a:active {
   .top-head-sec p,.top-head-sec a{
     color: white!important;
     font-size: 9px!important;
+    display: none;
   }
   .top-hd-social{
       gap: 10px;
   }
   .top-head-sec svg{
-    width: 15px!important;
-    height: 10px!important;
+    width: 25px!important;
+    height: 20px!important;
   }
   .top-hd-social a i{
     font-size: 10px;
@@ -7792,5 +7793,39 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+.bottom-navbar{
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+
+  .bottom-navbar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+     height: 4.5rem;
+    z-index: 12;
+    background-color: #fffdfd; /* White background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+.navbar-nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1.2rem;
+}
+.bottom-navbar .nav-link {
+    color: black!important;
+    font-size: 23px;
+    width: 28px;
+    height: 28px;
+}
+
+.footer{
+  padding-bottom: 5rem!important;
+}
+
 }
 /*# sourceMappingURL=style.css.map */
