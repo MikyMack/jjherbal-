@@ -1186,8 +1186,12 @@ a:hover, a:active {
  padding-bottom: 20px;
   justify-content: space-between;
 }
-.top-head-sec div p a{
-  color: black;
+.top-head-sec div a p{
+  color: black!important;
+}
+.top-head-sec div a{
+  display: flex;
+  gap: 5px;
 }
 .top-navbtn{
   display: flex;
@@ -1214,7 +1218,7 @@ a:hover, a:active {
     align-items: center;
  
   }
-  .top-head-sec p,.top-head-sec a{
+  .top-head-sec p{
     color: white!important;
     font-size: 9px!important;
     display: none;
@@ -1222,7 +1226,7 @@ a:hover, a:active {
   .top-hd-social{
       gap: 10px;
   }
-  .top-head-sec svg{
+  .top-head-sec  svg{
     width: 25px!important;
     height: 20px!important;
   }
@@ -1255,10 +1259,8 @@ a:hover, a:active {
     font-size: 9px;
     border-radius: 20px;
   }
-  .top-head-sec a{
-    display: none;
-  }
-  .top-head-sec svg{
+
+  .top-head-sec div a svg{
     width: 25px!important;
     height: 25px!important;
     background-color: white;
