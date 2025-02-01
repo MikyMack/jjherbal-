@@ -1,0 +1,191 @@
+<!-- views/admin-dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexual Stamina</title>
+    <meta name="Trivlogic" content="Sexual Stamina">
+    <meta name="jj herbal" content="Sexual Stamina">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9;">
+    <div style="max-width: 1200px; margin: auto; padding: 20px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center;">
+                <img src="/img/logo.png" alt="Logo" style="width: 50px; height: auto; margin-right: 20px;">
+                <h1 style="color: #333;">Admin Dashboard</h1>
+            </div>
+            <div>
+                <a href="/logout" style="color: #ff0000; text-decoration: none;">Logout</a>
+            </div>
+        </div>
+        
+        <!-- Blogs Management -->
+        <h2 style="color: #555;">Blogs Management For Sexual Stamina</h2>
+        
+        <!-- Button to open the modal -->
+        <button id="addBlogBtn" style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;margin-bottom: 10px;">Add Blog</button>
+
+        <!-- The Modal -->
+        <div id="addBlogModal" class="modal" style="position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); padding-top: 60px;">
+            <div class="modal-content" style="background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <form action="/create-blogs" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 20px; color: #333;">Create New Blog</h3>
+                    <input type="text" name="title" placeholder="Title" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <textarea name="description" placeholder="Description" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; height: 100px;"></textarea>
+                    <input type="file" name="image" required style="margin-bottom: 15px; font-size: 16px;">
+                    <input type="date" name="date" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaTitle" placeholder="Meta Title" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaContent" placeholder="Meta Content" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaDescription" placeholder="Meta Description" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaKeywords" placeholder="Meta Keywords (comma separated)" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <button type="submit" style="padding: 12px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">Create Blog</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Blog Modal -->
+        <div id="editBlogModal" class="modal" style="position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); padding-top: 60px;">
+            <div class="modal-content" style="background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <form id="editBlogForm" action="" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 20px; color: #333;">Edit Blog</h3>
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="text" name="title" placeholder="Title" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <textarea name="description" placeholder="Description" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; height: 100px;"></textarea>
+                    <input type="file" name="image" style="margin-bottom: 15px; font-size: 16px;">
+                    <input type="date" name="date" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaTitle" placeholder="Meta Title" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaContent" placeholder="Meta Content" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaDescription" placeholder="Meta Description" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <input type="text" name="metaKeywords" placeholder="Meta Keywords (comma separated)" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+                    <button type="submit" style="padding: 12px 20px; background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Display Blogs -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;">
+            <% blogs.forEach(blog => { %>
+                <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #333; font-weight: bold; margin-bottom: 10px;"><%= blog.title %></h3>
+                    <p style="color: #666; margin-bottom: 10px;"><%= blog.description.split(' ').slice(0, 2).join(' ') %>...</p>
+                    <img src="<%= blog.image %>" alt="Blog Image" style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; gap: 10px;">
+                        <button class="editBlogBtn" data-id="<%= blog._id %>" data-title="<%= blog.title %>" data-description="<%= blog.description %>" data-date="<%= blog.date.toISOString().split('T')[0] %>" data-metaTitle="<%= blog.metaTitle %>" data-metaContent="<%= blog.metaContent %>" data-metaDescription="<%= blog.metaDescription %>" data-metaKeywords="<%= blog.metaKeywords.join(', ') %>" style="flex: 1; padding: 10px; background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-edit" style="margin-right: 5px;"></i>Edit
+                        </button>
+                        <form action="/delete-blogs/<%= blog._id %>?_method=DELETE" method="POST" style="flex: 1; display: inline;">
+                            <button type="submit" style="width: 100%; padding: 10px; background-color: #dc3545; color: #fff; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-trash-alt" style="margin-right: 5px;"></i>Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <script>
+        // Get the modals
+        var addBlogModal = document.getElementById("addBlogModal");
+        var editBlogModal = document.getElementById("editBlogModal");
+
+        // Get the buttons that open the modals
+        var addBlogBtn = document.getElementById("addBlogBtn");
+        var editBlogBtns = document.getElementsByClassName("editBlogBtn");
+
+        // Get the <span> elements that close the modals
+        var closeBtns = document.getElementsByClassName("close");
+
+        // When the user clicks the button, open the add blog modal 
+        addBlogBtn.onclick = function() {
+            addBlogModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modals
+        for (var i = 0; i < closeBtns.length; i++) {
+            closeBtns[i].onclick = function() {
+                addBlogModal.style.display = "none";
+                editBlogModal.style.display = "none";
+            }
+        }
+
+        // When the user clicks anywhere outside of the modals, close them
+        window.onclick = function(event) {
+            if (event.target == addBlogModal) {
+                addBlogModal.style.display = "none";
+            }
+            if (event.target == editBlogModal) {
+                editBlogModal.style.display = "none";
+            }
+        }
+
+        // When the user clicks the edit button, open the edit blog modal and populate the form
+        for (var i = 0; i < editBlogBtns.length; i++) {
+            editBlogBtns[i].onclick = function() {
+                var blogId = this.getAttribute("data-id");
+                var blogTitle = this.getAttribute("data-title");
+                var blogDescription = this.getAttribute("data-description");
+                var blogDate = this.getAttribute("data-date");
+                var blogMetaTitle = this.getAttribute("data-metaTitle");
+                var blogMetaContent = this.getAttribute("data-metaContent");
+                var blogMetaDescription = this.getAttribute("data-metaDescription");
+                var blogMetaKeywords = this.getAttribute("data-metaKeywords");
+
+                var editBlogForm = document.getElementById("editBlogForm");
+                editBlogForm.action = "/edit-blogs/" + blogId + "?_method=PUT";
+                editBlogForm.method = "POST";
+                editBlogForm.title.value = blogTitle;
+                editBlogForm.description.value = blogDescription;
+                editBlogForm.date.value = blogDate;
+                editBlogForm.metaTitle.value = blogMetaTitle;
+                editBlogForm.metaContent.value = blogMetaContent;
+                editBlogForm.metaDescription.value = blogMetaDescription;
+                editBlogForm.metaKeywords.value = blogMetaKeywords;
+
+                editBlogModal.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
