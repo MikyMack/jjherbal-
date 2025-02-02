@@ -338,176 +338,35 @@
                             <div class="container ">
                                 <div style="gap: 10rem;" class="dsn-posts dsn-post-type-cards  box-image-normal d-grid grid-md-2 dsn-isotope use-filter v-dark-head"
                                     data-dsn-gap="30px">
+                                    <% blogs.forEach(blog => { %>
                                     <article class="dsn-item-post grid-item over-hidden p-relative has-border-radius">
                                         <div class="box-content">
                                             <div class="w-100">
                                                 <div class="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform">
-                                                    <a href="blogDetails.html"> <img src="/img/home-blog-card2.png" class="cover-bg-img dsn-swiper-parallax-transform" alt="" /> </a>
+                                                    <a href="/blog-details/<%= blog._id %>"> <img src="<%= blog.image %>" class="cover-bg-img dsn-swiper-parallax-transform" alt="" /> </a>
                                                 </div>
                                             </div>
                                     
                                             <div class="post-content background-section z-index-1 d-flex flex-column">
                                                 <div class="post-info d-flex justify-content-between align-items-center p-20">
                                                     <div class="cat d-flex p-0">
-                                                       <a href="blogDetails.html"> <span style="font-size: 18px;" class="background-main heading-color">Unlock Energy with Ashwagandha</span></a> 
+                                                       <a href="/blog-details/<%= blog._id %>"> <span style="font-size: 18px;" class="background-main heading-color"><%= blog.title %></span></a> 
                                                     </div>
                                                     <h2 class="post-title word-wrap d-inline-block title-block text-upper">
-                                                        <a href="" class="effect-ajax init-color" data-dsn-ajax="work">12/OCT/2024</a>
+                                                        <a href="/blog-details/<%= blog._id %>" class="effect-ajax init-color" data-dsn-ajax="work"><%= new Date(blog.date).toLocaleDateString() %></a>
                                                     </h2>
                                                 </div>
                                     
                                                 <div class="blog-dis">
-                                                   <a href="">  <p class="text short">
-                                                    "Ashwagandha, a powerful adaptogen, is renowned for boosting energy, enhancing stamina, and reducing stress naturally. Embrace its benefits to elevate your well-being and lead a more balanced life. "
+                                                   <a href="/blog-details/<%= blog._id %>">  <p class="text short">
+                                                    "<%= blog.description.split(' ').slice(0, 2).join(' ') %>..."
                                                 </p></a> 
-                                                   <a href="blogDetails.html"> <button class="toggleBtn">See More</button></a> 
+                                                   <a href="/blog-details/<%= blog._id %>"> <button class="toggleBtn">See More</button></a> 
                                                 </div>
                                             </div>
                                         </div>
                                     </article>
-                                    
-                                    
-
-                                    <article class="dsn-item-post grid-item over-hidden p-relative has-border-radius">
-                                        <div class="box-content">
-                                            <div class="w-100">
-                                                <div class="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform">
-                                                   <a href="blogDetails.html"> <img src="/img/home-blog-card3.png" class="cover-bg-img dsn-swiper-parallax-transform" alt="" /> </a> 
-                                                </div>
-                                            </div>
-                                    
-                                            <div class="post-content background-section z-index-1 d-flex flex-column">
-                                                <div class="post-info d-flex justify-content-between align-items-center p-20">
-                                                    <div class="cat d-flex p-0">
-                                                       <a href="blogDetails.html">   <span style="font-size: 18px;" class="background-main heading-color">Unlock Energy with Ashwagandha</span></a>
-                                                    </div>
-                                                    <h2 class="post-title word-wrap d-inline-block title-block text-upper">
-                                                        <a href="blogDetails.html" class="effect-ajax init-color" data-dsn-ajax="work">12/OCT/2024</a>
-                                                    </h2>
-                                                </div>
-                                    
-                                                <div class="blog-dis">
-                                                   <a href="blogDetails.html"> <p class="text short">
-                                                        "Ashwagandha, a powerful adaptogen, is renowned for boosting energy, enhancing stamina, and reducing stress naturally. Embrace its benefits to elevate your well-being and lead a more balanced life."
-                                                    </p></a>
-                                                   <a href="blogDetails.html"> <button class="toggleBtn">See More</button></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-
-                                    <article class="dsn-item-post grid-item over-hidden p-relative has-border-radius">
-                                        <div class="box-content">
-                                            <div class="w-100">
-                                                <div class="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform">
-                                                    <img src="/img/home-blog-card4.png" class="cover-bg-img dsn-swiper-parallax-transform" alt="" />
-                                                </div>
-                                            </div>
-                                    
-                                            <div class="post-content background-section z-index-1 d-flex flex-column">
-                                                <div class="post-info d-flex justify-content-between align-items-center p-20">
-                                                    <div class="cat d-flex p-0">
-                                                       <a href="blogDetails.html"><span style="font-size: 18px;" class="background-main heading-color">Unlock Energy with Ashwagandha</span></a> 
-                                                    </div>
-                                                    <h2 class="post-title word-wrap d-inline-block title-block text-upper">
-                                                        <a href="blogDetails.html" class="effect-ajax init-color" data-dsn-ajax="work">12/OCT/2024</a>
-                                                    </h2>
-                                                </div>
-                                    
-                                                <div class="blog-dis">
-                                                   <a href="blogDetails.html"> <p class="text short">
-                                                        "Ashwagandha, a powerful adaptogen, is renowned for boosting energy, enhancing stamina, and reducing stress naturally. Embrace its benefits to elevate your well-being and lead a more balanced life. "
-                                                    </p></a>
-                                                    <a href="blogDetails.html"> <button class="toggleBtn">See More</button></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-
-                                    <article class="dsn-item-post grid-item over-hidden p-relative has-border-radius">
-                                        <div class="box-content">
-                                            <div class="w-100">
-                                                <div class="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform">
-                                                   <a href="blogDetails.html"> <img src="/img/home-blog-card5.png" class="cover-bg-img dsn-swiper-parallax-transform" alt="" /></a>
-                                                </div>
-                                            </div>
-                                    
-                                            <div class="post-content background-section z-index-1 d-flex flex-column">
-                                                <div class="post-info d-flex justify-content-between align-items-center p-20">
-                                                    <div class="cat d-flex p-0">
-                                                      <a href="blogDetails.html">  <span style="font-size: 18px;" class="background-main heading-color">Unlock Energy with Ashwagandha</span></a>
-                                                    </div>
-                                                    <h2 class="post-title word-wrap d-inline-block title-block text-upper">
-                                                        <a href="blogDetails.html" class="effect-ajax init-color" data-dsn-ajax="work">12/OCT/2024</a>
-                                                    </h2>
-                                                </div>
-                                    
-                                                <div class="blog-dis">
-                                                   <a href="blogDetails.html"> <p class="text short">
-                                                        "Ashwagandha, a powerful adaptogen, is renowned for boosting energy, enhancing stamina, and reducing stress naturally. Embrace its benefits to elevate your well-being and lead a more balanced life. "
-                                                    </p> </a>
-                                                   <a href="blogDetails.html"> <button class="toggleBtn">See More</button></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <article class="dsn-item-post grid-item over-hidden p-relative has-border-radius">
-                                        <div class="box-content">
-                                            <div class="w-100">
-                                                <div class="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform">
-                                                   <a href="blogDetails.html"> <img src="/img/home-blog-card2.png" class="cover-bg-img dsn-swiper-parallax-transform" alt="" /></a>
-                                                </div>
-                                            </div>
-                                    
-                                            <div class="post-content background-section z-index-1 d-flex flex-column">
-                                                <div class="post-info d-flex justify-content-between align-items-center p-20">
-                                                    <div class="cat d-flex p-0">
-                                                      <a href="blogDetails.html">  <span style="font-size: 18px;" class="background-main heading-color">Unlock Energy with Ashwagandha</span></a>
-                                                    </div>
-                                                    <h2 class="post-title word-wrap d-inline-block title-block text-upper">
-                                                        <a href="blogDetails.html" class="effect-ajax init-color" data-dsn-ajax="work">12/OCT/2024</a>
-                                                    </h2>
-                                                </div>
-                                    
-                                                <div class="blog-dis">
-                                                  <a href="blogDetails.html">  <p class="text short">
-                                                        "Ashwagandha, a powerful adaptogen, is renowned for boosting energy, enhancing stamina, and reducing stress naturally. Embrace its benefits to elevate your well-being and lead a more balanced life."
-                                                    </p> </a>
-                                                    <a href="blogDetails.html"><button class="toggleBtn">See More</button></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-
-                                    <article class="dsn-item-post grid-item over-hidden p-relative has-border-radius">
-                                        <div class="box-content">
-                                            <div class="w-100">
-                                                <div class="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform">
-                                                   <a href="blogDetails.html"> <img src="/img/home-blog-card1.png" class="cover-bg-img dsn-swiper-parallax-transform" alt="" /></a>
-                                                </div>
-                                            </div>
-                                    
-                                            <div class="post-content background-section z-index-1 d-flex flex-column">
-                                                <div class="post-info d-flex justify-content-between align-items-center p-20">
-                                                    <div class="cat d-flex p-0">
-                                                       <a href="blogDetails.html"> <span style="font-size: 18px;" class="background-main heading-color">Unlock Energy with Ashwagandha</span></a>
-                                                    </div>
-                                                    <h2 class="post-title word-wrap d-inline-block title-block text-upper">
-                                                        <a href="" class="effect-ajax init-color" data-dsn-ajax="work">12/OCT/2024</a>
-                                                    </h2>
-                                                </div>
-                                    
-                                                <div class="blog-dis">
-                                                   <a href="blogDetails.html"> <p class="text short">
-                                                        "Ashwagandha, a powerful adaptogen, is renowned for boosting energy, enhancing stamina, and reducing stress naturally. Embrace its benefits to elevate your well-being and lead a more balanced life."
-                                                    </p> </a>
-                                                    <a href="blogDetails.html"><button class="toggleBtn">See More</button> </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-
-                                   
+                                    <% }); %>
                                 </div>
                             </div>
 
