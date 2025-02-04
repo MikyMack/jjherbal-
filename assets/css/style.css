@@ -7844,10 +7844,11 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
 }
 .profiles-container{
   flex-wrap: wrap;
-  margin-top: -3rem!important;
+
   height: 500px;
   gap: 10px!important;
   display: flex!important;
+  width: 100%;
 }
 .profile-img{
   width: 90%!important;
@@ -7871,7 +7872,7 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
     width: 90%!important;
   }
   .profile-img{
-    width: 50%!important;
+    width: 80%!important;
   }
   .profiles-container{
     justify-content: center!important;
