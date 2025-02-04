@@ -1757,7 +1757,28 @@ if (topHeader) {
 
 
 
+// modal
+   window.onload = function() {
+    document.getElementById('modalOverlay').style.display = 'block';
+}
 
+
+function closeModal() {
+    document.getElementById('modalOverlay').style.display = 'none';
+}
+
+
+function bookConsultation(consultantName) {
+    alert(`Booking consultation with ${consultantName}`);
+   
+}
+
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
 
 
 //# sourceMappingURL=custom.js.map
