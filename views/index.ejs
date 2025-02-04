@@ -393,27 +393,29 @@
                                 <h2 class="text-upper">Have your health related questions??</h2>
                                 <p>Get Free Answers to your Health Questions from Trusted Doctors!</p>
                                 <h6>Your Question</h6>
-                                <input placeholder="Describe your issue here " type="text">
+                                <input id="userQuestion" placeholder="Describe your issue here " type="text">
                                 <div class="dsn-btn hero-btn dsn-btn-shape d-flex justify-content-center mt-30">
-
-                                    <a class="button background-section effect-ajax" href="/contact"
-                                        data-dsn-text="">
+                                    <button class="button background-section effect-ajax" onclick="sendEmail()">
                                         <span class="title-btn text-upper p-relative  z-index-1 heading-color"
                                             data-animate-text="Ask Question Now">
                                             <span>Ask Question Now</span>
                                         </span>
-                                    </a>
-        
+                                    </button>
                                     <span class="icon background-section">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                                             <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z">
                                             </path>
                                         </svg>
                                     </span>
-        
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        <script>
+                            function sendEmail() {
+                                var question = document.getElementById('userQuestion').value;
+                                window.location.href = 'mailto:sexualstamina1@gmail.com?subject=Health Question&body=' + encodeURIComponent(question);
+                            }
+                        </script>
                    
                 </div>
                 <!-- ========== End Image Under Header ========== -->
