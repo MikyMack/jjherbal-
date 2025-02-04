@@ -1210,7 +1210,7 @@ a:hover, a:active {
 
 
 }
-@media(max-width:756px){
+@media(max-width:778px){
   .top-hd{
     width: 100%;
     display: flex;
@@ -7828,6 +7828,138 @@ body.tax-product_tag #dsn_header, body.tax-product_cat #dsn_header {
 .footer{
   padding-bottom: 5rem!important;
 }
+.modal-overlay{
+  height: 400px!important;
+}
+.modal{
+  width: 80%;
+  height: auto;
+}
+.profile,.profile1{
+  width: 100%!important;
 
+}
+.profile1{
+  margin-top: 10px;
+}
+.profiles-container{
+  flex-wrap: wrap;
+  margin-top: -3rem!important;
+  height: 500px;
+  gap: 10px!important;
+  display: flex!important;
+}
+.profile-img{
+  width: 90%!important;
+  height: 150px!important;
+}
+.profile div,.profile1 div{
+  font-size: 15px;
+
+}
+.consultation-btn {
+  margin-top: 0px!important;
+  font-size: 12px!important;
+}
+.profile p,.profile1 p{
+  margin-top: -10px;
+  font-size: 12px;
+}
+}
+@media only screen and (max-width: 872px) {
+  .modal {
+    width: 90%!important;
+  }
+  .profile-img{
+    width: 50%!important;
+  }
+  .profiles-container{
+    justify-content: center!important;
+    display: flex;
+    gap: 0px!important;
+  }
+}
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 90%;
+  z-index: 1001;
+}
+.profile p ,.profile1 p{
+  color: #2a2a2a;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+
+.profiles-container {
+  display: flex;
+  justify-content: space-around;
+
+  gap: 2rem;
+
+}
+
+.profile,.profile1 {
+  text-align: center;
+  flex: 1;
+  min-width: 350px;
+}
+
+.profile-img {
+  width: 300px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #2a2a2a;
+}
+
+.consultation-btn {
+  background-color: #212222;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.consultation-btn:hover {
+  background-color: #bf1c0d;
 }
 /*# sourceMappingURL=style.css.map */
